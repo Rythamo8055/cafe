@@ -2,41 +2,31 @@
 
 import { useEffect, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
-import { useAppStore } from "@/store/appStore";
 
 export default function OnboardingGate({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const router = useRouter();
-  const { hasOnboarded, hydrate } = useAppStore();
-  const [hydrated, setHydrated] = useState(false);
+  const [ready, setReady] = useState(false);
 
   useEffect(() => {
-    hydrate();
-    setHydrated(true);
-  }, [hydrate]);
+    // Check sessionStorage — fresh tab/window always sees onboarding
+    const hasSeenOnboarding = sessionStorage.getItem("cafe_session_onboarded");
 
-  useEffect(() => {
-    if (!hydrated) return;
-    // If not onboarded and not already on onboarding, redirect
-    if (!hasOnboarded && pathname !== "/onboarding") {
+    if (!hasSeenOnboarding && pathname !== "/onboarding") {
       router.replace("/onboarding");
+    } else {
+      setReady(true);
     }
-  }, [hydrated, hasOnboarded, pathname, router]);
+  }, [pathname, router]);
 
-  // While hydrating, show nothing to avoid flash
-  if (!hydrated) {
+  // On onboarding page, always render it
+  if (pathname === "/onboarding") return <>{children}</>;
+
+  // Loading state while checking
+  if (!ready) {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center">
-        <div className="w-8 h-8 border-3 border-primary/20 border-t-primary rounded-full animate-spin" />
-      </div>
-    );
-  }
-
-  // If not onboarded and not on onboarding page, show nothing (redirect is happening)
-  if (!hasOnboarded && pathname !== "/onboarding") {
-    return (
-      <div className="min-h-screen bg-background flex items-center justify-center">
-        <div className="w-8 h-8 border-3 border-primary/20 border-t-primary rounded-full animate-spin" />
+        <div className="w-8 h-8 border-[3px] border-primary/20 border-t-primary rounded-full animate-spin" />
       </div>
     );
   }

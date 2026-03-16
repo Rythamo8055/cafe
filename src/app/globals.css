@@ -15,12 +15,26 @@
   --radius-pill: 999px;
 }
 
+/* Base mobile-first optimizations */
+html {
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: var(--color-background);
   color: var(--color-text);
   font-family: var(--font-body);
-  /* Fallback to hide horizontal scroll on some mobile browsers */
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overscroll-behavior-y: none;
+}
+
+/* Safe area padding for notched phones */
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 1rem);
 }
 
 /* Cookie banner slide-up */
@@ -39,6 +53,14 @@ body {
   animation: slide-up 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
+/* Spinner */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+.animate-spin {
+  animation: spin 0.8s linear infinite;
+}
+
 /* Hide scrollbar utility */
 .hide-scrollbar::-webkit-scrollbar {
   display: none;
@@ -46,4 +68,20 @@ body {
 .hide-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+/* Touch-friendly tappable areas */
+button, a {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+/* Image optimizations for mobile */
+img {
+  content-visibility: auto;
+}
+
+/* Prevent overscroll bounce on iOS */
+main {
+  overscroll-behavior: none;
 }
