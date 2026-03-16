@@ -2,16 +2,25 @@
 
 import CurvedLoop from "@/components/ui/CurvedLoop";
 import CircularGallery from "@/components/ui/CircularGallery";
-import Link from "next/link";
-import Image from "next/image";
+import { useRouter } from "next/navigation";
+import { useAppStore } from "@/store/appStore";
 
 export default function Onboarding() {
+  const router = useRouter();
+  const setOnboarded = useAppStore((s) => s.setOnboarded);
+
   const galleryItems = [
-    { image: "https://images.unsplash.com/photo-1497935586351-b67a49e012bf?w=400&h=400&fit=crop", text: "Coffee" },
+    { image: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&h=400&fit=crop", text: "Coffee" },
+    { image: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=400&h=400&fit=crop", text: "Espresso" },
     { image: "https://images.unsplash.com/photo-1555507036-ab1f40ce88cb?w=400&h=400&fit=crop", text: "Pastries" },
     { image: "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=400&h=400&fit=crop", text: "Latte" },
-    { image: "https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?w=400&h=400&fit=crop", text: "Cold Brew" },
+    { image: "https://images.unsplash.com/photo-1504630083234-14187a9df0f5?w=400&h=400&fit=crop", text: "Cold Brew" },
   ];
+
+  const handleGetStarted = () => {
+    setOnboarded();
+    router.replace("/");
+  };
 
   return (
     <main className="min-h-screen bg-primary relative overflow-hidden flex flex-col items-center justify-between pb-12 w-full max-w-md mx-auto">
@@ -48,11 +57,12 @@ export default function Onboarding() {
       </div>
 
       <div className="relative z-10 w-full px-6 mt-12 pb-8">
-        <Link href="/">
-          <button className="w-full bg-[#E5E0D8] text-primary py-[18px] rounded-pill font-bold tracking-wide text-lg hover:bg-surface transition-all shadow-xl active:scale-[0.98]">
-            Get Started
-          </button>
-        </Link>
+        <button 
+          onClick={handleGetStarted}
+          className="w-full bg-[#E5E0D8] text-primary py-[18px] rounded-pill font-bold tracking-wide text-lg hover:bg-surface transition-all shadow-xl active:scale-[0.98]"
+        >
+          Get Started
+        </button>
       </div>
     </main>
   );

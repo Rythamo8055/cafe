@@ -4,6 +4,8 @@ import "./globals.css";
 import BottomNav from "@/components/BottomNav";
 import ClickSpark from "@/components/ui/ClickSpark";
 import CartFAB from "@/components/CartFAB";
+import CookieBanner from "@/components/CookieBanner";
+import OnboardingGate from "@/components/OnboardingGate";
 
 const fraunces = Fraunces({
   variable: "--font-fraunces",
@@ -35,11 +37,14 @@ export default function RootLayout({
           sparkCount={6}
           duration={500}
         >
-          <div className="pb-24">
-            {children}
-            <BottomNav />
-            <CartFAB />
-          </div>
+          <OnboardingGate>
+            <div className="pb-24">
+              {children}
+              <BottomNav />
+              <CartFAB />
+              <CookieBanner />
+            </div>
+          </OnboardingGate>
         </ClickSpark>
       </body>
     </html>

@@ -5,18 +5,22 @@ import Link from "next/link";
 import { useCartStore } from "@/store/cartStore";
 
 export default function MenuCatalog() {
-  const categories = ["Coffee", "Tea", "Pastries", "Sandwiches", "Merch"];
+  const categories = ["Coffee", "Tea", "Pastries", "Sandwiches"];
   
   const menuItems = [
-    { id: "c1", name: "Oat Milk Latte", category: "Coffee", price: "$5.50", img: "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=200&h=200&fit=crop" },
-    { id: "c2", name: "Cold Brew", category: "Coffee", price: "$4.75", img: "https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?w=200&h=200&fit=crop" },
-    { id: "c3", name: "Cappuccino", category: "Coffee", price: "$4.95", img: "https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=200&h=200&fit=crop" },
-    { id: "t1", name: "Iced Matcha Latte", category: "Tea", price: "$6.00", img: "https://images.unsplash.com/photo-1515823662972-da6a2e4d3002?w=200&h=200&fit=crop" },
-    { id: "t2", name: "Earl Grey", category: "Tea", price: "$3.50", img: "https://images.unsplash.com/photo-1594835496417-69ee6206037f?w=200&h=200&fit=crop" },
-    { id: "p1", name: "Butter Croissant", category: "Pastries", price: "$4.00", img: "https://images.unsplash.com/photo-1555507036-ab1f40ce88cb?w=200&h=200&fit=crop" },
+    { id: "c1", name: "Oat Milk Latte", category: "Coffee", price: "$5.50", img: "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=400&h=400&fit=crop" },
+    { id: "c2", name: "Cold Brew", category: "Coffee", price: "$4.75", img: "https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?w=400&h=400&fit=crop" },
+    { id: "c3", name: "Cappuccino", category: "Coffee", price: "$4.95", img: "https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=400&h=400&fit=crop" },
+    { id: "c4", name: "Flat White", category: "Coffee", price: "$5.25", img: "https://images.unsplash.com/photo-1534778101976-62847782c213?w=400&h=400&fit=crop" },
+    { id: "t1", name: "Iced Matcha Latte", category: "Tea", price: "$6.00", img: "https://images.unsplash.com/photo-1515823662972-da6a2e4d3002?w=400&h=400&fit=crop" },
+    { id: "t2", name: "Earl Grey", category: "Tea", price: "$3.50", img: "https://images.unsplash.com/photo-1594835496417-69ee6206037f?w=400&h=400&fit=crop" },
+    { id: "p1", name: "Butter Croissant", category: "Pastries", price: "$4.00", img: "https://images.unsplash.com/photo-1555507036-ab1f40ce88cb?w=400&h=400&fit=crop" },
+    { id: "p2", name: "Blueberry Muffin", category: "Pastries", price: "$3.75", img: "https://images.unsplash.com/photo-1607958996333-41aef7caefaa?w=400&h=400&fit=crop" },
+    { id: "s1", name: "Turkey Club", category: "Sandwiches", price: "$8.50", img: "https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=400&h=400&fit=crop" },
+    { id: "s2", name: "Avocado Toast", category: "Sandwiches", price: "$7.25", img: "https://images.unsplash.com/photo-1541519227354-08fa5d50c44d?w=400&h=400&fit=crop" },
   ];
 
-  const { items, addItem, totalItems, totalPrice } = useCartStore();
+  const { addItem } = useCartStore();
 
   const handleAddToCart = (e: React.MouseEvent, item: any) => {
     e.preventDefault();
@@ -89,9 +93,6 @@ export default function MenuCatalog() {
           </Link>
         ))}
       </div>
-
-      {/* Floating Cart Removed since it is present globally in layout now */}
-
     </main>
   );
 }

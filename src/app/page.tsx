@@ -41,11 +41,11 @@ export default function Home() {
           <BounceCards
             className="scale-[0.85] sm:scale-100 origin-top"
             images={[
-              "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=500&h=500&fit=crop",
-              "https://images.unsplash.com/photo-1555507036-ab1f40ce88cb?w=500&h=500&fit=crop",
+              "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=500&h=500&fit=crop",
+              "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=500&h=500&fit=crop",
               "https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=500&h=500&fit=crop",
-              "https://images.unsplash.com/photo-1622350810313-2dfad1b0b5fe?w=500&h=500&fit=crop",
-              "https://images.unsplash.com/photo-1515823662972-da6a2e4d3002?w=500&h=500&fit=crop"
+              "https://images.unsplash.com/photo-1504630083234-14187a9df0f5?w=500&h=500&fit=crop",
+              "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=500&h=500&fit=crop"
             ]}
             containerWidth={340}
             containerHeight={220}
@@ -71,8 +71,9 @@ export default function Home() {
         
         <div className="flex flex-col gap-4">
           {[
-            { id: "s1", name: "Spiced Pumpkin Draft", desc: "Cold brew topped with creamy spiced cold foam.", price: "$5.75", badge: "NEW", img: "https://images.unsplash.com/photo-1622350810313-2dfad1b0b5fe?w=500&h=300&fit=crop" },
+            { id: "s1", name: "Spiced Pumpkin Draft", desc: "Cold brew topped with creamy spiced cold foam.", price: "$5.75", badge: "NEW", img: "https://images.unsplash.com/photo-1504630083234-14187a9df0f5?w=500&h=300&fit=crop" },
             { id: "s2", name: "Maple Pecan Croissant", desc: "Flaky butter pastry baked with maple glaze.", price: "$4.50", badge: "POPULAR", img: "https://images.unsplash.com/photo-1555507036-ab1f40ce88cb?w=500&h=300&fit=crop" },
+            { id: "s3", name: "Caramel Macchiato", desc: "Vanilla-infused milk with espresso and caramel drizzle.", price: "$5.95", badge: "SEASONAL", img: "https://images.unsplash.com/photo-1485808191679-5f86510681a2?w=500&h=300&fit=crop" },
           ].map((item) => (
             <Link href={`/menu`} key={item.id} className="block group">
               <div className="bg-surface rounded-card p-4 shadow-sm flex gap-4 items-center">

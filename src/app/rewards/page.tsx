@@ -1,17 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import Lanyard from "@/components/ui/Lanyard";
 
 export default function Rewards() {
   return (
     <main className="min-h-screen bg-background relative overflow-hidden flex flex-col pt-8 px-6 pb-32 max-w-md mx-auto">
-       <h1 className="font-headings text-[28px] font-semibold text-primary mb-2">Loyalty & Rewards</h1>
-       
-       {/* Lanyard Membership Card */}
-       <div className="h-[280px] w-full mb-4 relative z-0">
-         <Lanyard position={[0, 0, 20]} gravity={[0, -40, 0]} transparent={true} />
-       </div>
+       <h1 className="font-headings text-[28px] font-semibold text-primary mb-6">Loyalty & Rewards</h1>
        
        {/* Stars Display */}
        <div className="bg-surface rounded-card p-8 shadow-sm text-center relative overflow-hidden flex flex-col items-center mb-6">
@@ -59,6 +53,24 @@ export default function Rewards() {
             </div>
             <h3 className="font-headings font-semibold text-primary text-base mb-1.5">Handcrafted</h3>
             <p className="text-[13px] text-muted leading-relaxed">Latte, mocha, or cold brew.</p>
+         </div>
+
+         <div className="bg-surface opacity-60 border border-muted/20 rounded-card p-5 shadow-sm flex flex-col relative overflow-hidden">
+            <div className="flex items-center gap-1.5 font-bold text-muted mb-3">
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg>
+              150
+            </div>
+            <h3 className="font-headings font-semibold text-primary text-base mb-1.5">Lunch Item</h3>
+            <p className="text-[13px] text-muted leading-relaxed">Any sandwich or wrap.</p>
+         </div>
+
+         <div className="bg-surface opacity-40 border border-muted/10 rounded-card p-5 shadow-sm flex flex-col relative overflow-hidden">
+            <div className="flex items-center gap-1.5 font-bold text-muted mb-3">
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg>
+              250
+            </div>
+            <h3 className="font-headings font-semibold text-primary text-base mb-1.5">Merch Item</h3>
+            <p className="text-[13px] text-muted leading-relaxed">Tote bag or tumbler.</p>
          </div>
        </div>
     </main>
