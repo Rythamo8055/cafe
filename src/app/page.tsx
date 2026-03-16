@@ -2,32 +2,64 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import BounceCards from "@/components/ui/BounceCards";
+
+// Dynamically import Grainient (WebGL) to avoid SSR issues
+const Grainient = dynamic(() => import("@/components/ui/Grainient"), { ssr: false });
 
 export default function Home() {
   return (
     <main className="min-h-screen p-6 max-w-md mx-auto relative pb-32">
-      {/* Loyalty Card */}
-      <section className="bg-primary text-surface rounded-card p-6 shadow-md mb-8 relative overflow-hidden">
-        {/* Decorative circle graphic */}
-        <div className="absolute -top-10 -right-10 w-32 h-32 bg-white/10 rounded-full blur-xl"></div>
-        
-        <p className="text-sm font-medium opacity-90 mb-1">Welcome back,</p>
-        <h1 className="font-headings text-[32px] font-semibold leading-tight mb-6">
-          Ready for your<br />morning brew?
-        </h1>
-        
-        <div className="flex items-center justify-between mb-2">
-          <div className="flex items-center gap-1.5 font-medium">
-            <StarIcon className="w-5 h-5 text-accent" />
-            <span>42 Stars</span>
-          </div>
-          <span className="text-sm opacity-80">50 to next reward</span>
+      {/* Loyalty Card with Grainient Background */}
+      <section className="text-surface rounded-card p-6 shadow-md mb-8 relative overflow-hidden">
+        {/* Animated Grainient Background */}
+        <div className="absolute inset-0 z-0">
+          <Grainient
+            color1="#C86A42"
+            color2="#3C2415"
+            color3="#795325"
+            timeSpeed={0.15}
+            colorBalance={0}
+            warpStrength={1}
+            warpFrequency={4}
+            warpSpeed={1.5}
+            warpAmplitude={60}
+            blendAngle={0}
+            blendSoftness={0.1}
+            rotationAmount={400}
+            noiseScale={2}
+            grainAmount={0.08}
+            grainScale={2}
+            grainAnimated={false}
+            contrast={1.3}
+            gamma={1}
+            saturation={1.1}
+            centerX={0}
+            centerY={0}
+            zoom={0.9}
+          />
         </div>
-        
-        {/* Pill Progress Bar */}
-        <div className="w-full h-2.5 bg-white/20 rounded-pill overflow-hidden">
-          <div className="h-full bg-accent rounded-pill w-[84%]"></div>
+
+        {/* Content on top of Grainient */}
+        <div className="relative z-10">
+          <p className="text-sm font-medium opacity-90 mb-1">Welcome back,</p>
+          <h1 className="font-headings text-[32px] font-semibold leading-tight mb-6">
+            Ready for your<br />morning brew?
+          </h1>
+          
+          <div className="flex items-center justify-between mb-2">
+            <div className="flex items-center gap-1.5 font-medium">
+              <StarIcon className="w-5 h-5 text-accent" />
+              <span>42 Stars</span>
+            </div>
+            <span className="text-sm opacity-80">50 to next reward</span>
+          </div>
+          
+          {/* Pill Progress Bar */}
+          <div className="w-full h-2.5 bg-white/20 rounded-pill overflow-hidden">
+            <div className="h-full bg-accent rounded-pill w-[84%]"></div>
+          </div>
         </div>
       </section>
 

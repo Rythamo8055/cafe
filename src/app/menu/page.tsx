@@ -35,7 +35,7 @@ export default function MenuCatalog() {
   return (
     <main className="min-h-screen max-w-md mx-auto relative bg-background pb-32">
       {/* Sticky Header & Categories */}
-      <div className="sticky top-0 z-40 bg-background/95 backdrop-blur-md pt-6 pb-4 border-b border-muted/20">
+      <div className="bg-background pt-6 pb-4 border-b border-muted/20">
         <h1 className="font-headings text-[28px] font-semibold text-primary px-6 mb-4 leading-none">Menu</h1>
         
         {/* Search Bar */}
