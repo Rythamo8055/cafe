@@ -24,7 +24,7 @@ export default function CartFAB() {
   }
 
   return (
-    <div className="fixed bottom-28 left-1/2 -translate-x-1/2 z-40">
+    <div className="fixed z-40 left-1/2 -translate-x-1/2" style={{ bottom: `calc(5.5rem + env(safe-area-inset-bottom, 0px))` }}>
       <Link href="/cart">
         <button className="bg-accent text-surface px-6 py-3 rounded-pill font-medium shadow-lg flex items-center gap-3 hover:scale-105 active:scale-95 transition-transform">
           <div className="bg-surface/20 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold shadow-sm">
